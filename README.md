@@ -24,7 +24,7 @@ For educational purposes only!
 
 3. Install the required dependencies using pip:
 
-```pip install -r requirements.txt```
+```pip3 install -r requirements.txt```
 
 ## Usage
 
