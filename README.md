@@ -11,7 +11,8 @@ For educational purposes only!
 ## Prerequisites
 
 - Python 3.x
-
+- Masscan
+- Bash
 ## Installation
 
 1. Clone the repository:
@@ -22,9 +23,9 @@ For educational purposes only!
 
 ```cd cdn-cracker```
 
-3. Install the required dependencies using pip:
+3. Install the required dependencies:
 
-```pip3 install -r requirements.txt```
+```chmod +x setup.sh && ./setup.sh```
 
 ## Usage
 
@@ -35,10 +36,20 @@ Arguments:
 - `file_path`: The file path to save the results
 - `domain`: The domain name to modify the Host header
 
+### To get a list of IPs
+
+```python3 get-ips.py [network_range]```
+
+Replace [network_range] with the desired IP range to scan. For example:
+
+```python3 get-ips.py 192.168.0.0/24```
+
+The script will use `masscan` to scan the specified IP range for open ports (80 and 443) and generate the results in a `ips.txt` file.
+
 ## Important Notes
 
 - Disable SSL warnings: The script disables SSL warnings to allow connections to websites with invalid or self-signed certificates. Use caution and ensure the target websites are trusted.
-- IP Address File: The script reads IP addresses from a file named `big-mac.txt`. Make sure to provide the file with the desired IP addresses to check.
+- IP Address File: The script reads IP addresses from a file named `ips.txt`. Make sure to provide the file with the desired IP addresses to check.
 - Maximum Threads: The maximum number of concurrent threads for execution is set to 100 by default. Adjust this value (`num_threads`) based on your system's capabilities and network conditions.
 
 ## Example
