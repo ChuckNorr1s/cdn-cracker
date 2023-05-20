@@ -2,6 +2,14 @@
 
 CDN Cracker is a script designed to check a list of IP addresses for their association with a specific domain by analyzing the HTML title of their corresponding websites. It utilizes concurrent execution to efficiently process multiple IP addresses simultaneously.
 
+# Features
+
+- Checks a list of IP addresses for their association with a specific domain.
+- Bypasses CDNs such as Cloudflare, Cloudflarenet, Akamai, and others by directly sending requests to the IP addresses.
+- Analyzes the HTML title element of the website response to determine association.
+- After association it scans for the element.
+- If the element is found within the response, the CDN can be bypassed by sending requests directly, with the host header set to the target/victim.
+
 # WARNING
 
 Please note that CDN Cracker is currently in the **early alpha state**, and it may contain bugs or unexpected behavior. Use it at your own risk.
