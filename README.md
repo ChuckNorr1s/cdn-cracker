@@ -68,6 +68,8 @@ The script will use `masscan` to scan the specified IP range for open ports (80 
 
 #### OR
 
+##### NOTE: CENSYS HAS BEEN REMOVED TEMPORARY 
+
 1.Set up the required environment variables:
 
    - `SHODAN_API_KEY`: Your Shodan API key.
