@@ -77,7 +77,7 @@ The script will use `masscan` to scan the specified IP range for open ports (80 
 2. Run the script using the following command:
 
    ```bash
-   python3 script.py "your-query"
+   python3 lite-scout.py "your-query"
    ```
 
    Replace `"your-query"` with the specific query you want to use for IP address extraction.
