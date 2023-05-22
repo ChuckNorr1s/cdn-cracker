@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import re
 
 # Check if network range is provided
 if len(sys.argv) < 2:
@@ -11,5 +12,18 @@ if len(sys.argv) < 2:
 network_range = sys.argv[1]
 
 # Run masscan to scan for open ports on the target IP range
-command = f"sudo masscan -p80,443 --range {network_range} --rate=1000 --banners --max-rate 10000 --wait 0 -oG - | grep -E -o \"([0-9]{{1,3}}[\\.]){{3}}[0-9]{{1,3}}\" | sed '/\\b\\(25[0-5]\\|2[0-4][0-9]\\|[01]\\?[0-9][0-9]\\?\\)\\(\\.\(25[0-5]\\|2[0-4][0-9]\\|[01]\\?[0-9][0-9]\\?\\)\\){{3}}\\b/!d' > ips.txt"
+command = f"sudo masscan -p80,443 --range {network_range} --rate=1000 --banners --max-rate 10000 --wait 0 -oG ips.txt"
 subprocess.run(command, shell=True)
+
+print("...rewritting in right format...")
+# Read the contents of ips.txt
+with open('ips.txt', 'r') as file:
+    content = file.read()
+
+# Use regular expressions to extract the IP addresses
+ip_addresses = re.findall(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b', content)
+
+# Write the extracted IP addresses to ips.txt
+with open('ips.txt', 'w') as file:
+    for ip in ip_addresses:
+        file.write(ip + '\n')
