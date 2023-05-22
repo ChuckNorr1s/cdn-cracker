@@ -25,19 +25,27 @@ For educational purposes only!
 
 1. Clone the repository:
 
-```git clone https://github.com/your-username/cdn-cracker.git```
+```bash
+git clone https://github.com/your-username/cdn-cracker.git
+```
 
 2. Navigate to the project directory:
 
-```cd cdn-cracker```
+```bash
+cd cdn-cracker
+```
 
 3. Install the required dependencies:
 
-```chmod +x setup.sh && ./setup.sh```
+```bash
+chmod +x setup.sh && ./setup.sh
+```
 
 ## Usage
 
-```python3 cdn-cracker.py [target_title] [file_path] [domain]```
+```bash
+python3 cdn-cracker.py [target_title] [file_path] [domain]
+```
 
 Arguments:
 - `target_title`: The target HTML title to search for
@@ -46,11 +54,15 @@ Arguments:
 
 ### To get a list of IPs
 
-```python3 get-ips.py [network_range]```
+```bash
+python3 get-ips.py [network_range]
+```
 
-Replace [network_range] with the desired IP range to scan. For example:
+Replace `[network_range]` with the desired IP range to scan. For example:
 
-```python3 get-ips.py 192.168.0.0/24```
+```bash
+python3 get-ips.py 192.168.0.0/24
+```
 
 The script will use `masscan` to scan the specified IP range for open ports (80 and 443) and generate the results in a `ips.txt` file.
 
@@ -92,7 +104,9 @@ The script will use `masscan` to scan the specified IP range for open ports (80 
 
 To check if the HTML title of each IP address's corresponding website contains the target title "Example Domain" and save the results to a file named `results.txt`:
 
-```python3 cdn-cracker.py "Example Domain" results.txt example.com```
+```bash
+python3 cdn-cracker.py "Example Domain" results.txt example.com
+```
 
 ## Progress and Timing
 
