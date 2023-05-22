@@ -9,18 +9,6 @@ def get_shodan_results(query, api_key):
     ips = [result['ip_str'] for result in data['matches']]
     return ips
 
-def get_censys_results(query, api_id, api_secret):
-    url = "https://search.censys.io/api/v1/search/ipv4"
-    data = {
-        "query": query,
-        "apikey": api_id,
-        "secret": api_secret
-    }
-    response = requests.post(url, json=data)
-    data = response.json()
-    ips = [result['ip'] for result in data['results']]
-    return ips
-
 def save_to_file(ips):
     with open("ips.txt", "w") as file:
         for ip in ips:
@@ -34,17 +22,14 @@ def main():
     query = sys.argv[1]
 
     shodan_api_key = os.getenv("SHODAN_API_KEY")
-    censys_api_id = os.getenv("CENSYS_API_ID")
-    censys_api_secret = os.getenv("CENSYS_API_SECRET")
 
-    if not shodan_api_key or not censys_api_id or not censys_api_secret:
-        print("Please set the environment variables: SHODAN_API_KEY, CENSYS_API_ID, CENSYS_API_SECRET")
+    if not shodan_api_key:
+        print("Please set the environment variable: SHODAN_API_KEY")
         return
 
     shodan_ips = get_shodan_results(query, shodan_api_key)
-    censys_ips = get_censys_results(query, censys_api_id, censys_api_secret)
 
-    ips = shodan_ips + censys_ips
+    ips = shodan_ips
 
     save_to_file(ips)
     print(f"Results saved to ips.txt")
