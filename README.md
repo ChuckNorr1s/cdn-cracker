@@ -54,6 +54,34 @@ Replace [network_range] with the desired IP range to scan. For example:
 
 The script will use `masscan` to scan the specified IP range for open ports (80 and 443) and generate the results in a `ips.txt` file.
 
+#### OR
+
+1.Set up the required environment variables:
+
+   - `SHODAN_API_KEY`: Your Shodan API key.
+   - `CENSYS_API_ID`: Your Censys API ID.
+   - `CENSYS_API_SECRET`: Your Censys API secret.
+
+2. Run the script using the following command:
+
+   ```bash
+   python script.py "your-query"
+   ```
+
+   Replace `"your-query"` with the specific query you want to use for IP address extraction.
+
+   **Example:**
+
+   ```bash
+   python script.py "example query"
+   ```
+
+3. The script will retrieve results from the Shodan and Censys APIs, extract the IP addresses, and save them to a file named `ips.txt` in the project directory.
+
+   ```plaintext
+   Results saved to ips.txt
+   ```
+
 ## Important Notes
 
 - Disable SSL warnings: The script disables SSL warnings to allow connections to websites with invalid or self-signed certificates. Use caution and ensure the target websites are trusted.
