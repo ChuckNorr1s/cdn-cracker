@@ -12,7 +12,7 @@ if len(sys.argv) < 2:
 network_range = sys.argv[1]
 
 # Run masscan to scan for open ports on the target IP range
-command = f"sudo masscan -p80,443 --range {network_range} --rate=1000 --banners --max-rate 10000 --wait 0 -oG ips.txt"
+command = f"sudo masscan -p80,443 --range {network_range} --rate=1000 --banners --max-rate 10000 --wait 0 -oG ips.txt && sudo chmod 777 ips.txt"
 subprocess.run(command, shell=True)
 
 print("...rewritting in right format...")
