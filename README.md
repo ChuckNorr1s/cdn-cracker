@@ -120,3 +120,6 @@ CDN Cracker is in the early alpha stage, and it may contain bugs or issues. If y
 
 CDN Cracker is an open-source project, and contributions are welcome. If you have any suggestions, bug fixes, or improvements, please feel free to submit a pull request.
 
+### License
+
+This project is licensed under the [MIT License](LICENSE).
