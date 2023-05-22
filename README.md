@@ -26,7 +26,7 @@ For educational purposes only!
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/cdn-cracker.git
+git clone https://github.com/ChuckNorr1s/cdn-cracker.git
 ```
 
 2. Navigate to the project directory:
