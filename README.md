@@ -77,7 +77,7 @@ The script will use `masscan` to scan the specified IP range for open ports (80 
 2. Run the script using the following command:
 
    ```bash
-   python script.py "your-query"
+   python3 script.py "your-query"
    ```
 
    Replace `"your-query"` with the specific query you want to use for IP address extraction.
@@ -85,7 +85,7 @@ The script will use `masscan` to scan the specified IP range for open ports (80 
    **Example:**
 
    ```bash
-   python script.py "example query"
+   python3 script.py "example query"
    ```
 
 3. The script will retrieve results from the Shodan and Censys APIs, extract the IP addresses, and save them to a file named `ips.txt` in the project directory.
