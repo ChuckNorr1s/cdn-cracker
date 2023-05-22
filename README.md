@@ -85,7 +85,7 @@ The script will use `masscan` to scan the specified IP range for open ports (80 
    **Example:**
 
    ```bash
-   python3 script.py "example query"
+   python3 script.py "hostname:example.com"
    ```
 
 3. The script will retrieve results from the Shodan and Censys APIs, extract the IP addresses, and save them to a file named `ips.txt` in the project directory.
